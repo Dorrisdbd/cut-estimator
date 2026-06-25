@@ -1,0 +1,298 @@
+<!doctype html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>签售 CUT 预估系统</title>
+    <link rel="stylesheet" href="./styles.css" />
+  </head>
+  <body>
+    <div class="app-shell">
+      <aside class="sidebar" aria-label="主导航">
+        <div class="brand">
+          <div class="brand-mark">C</div>
+          <div>
+            <strong>CUT Radar</strong>
+            <span>签售决策后台</span>
+          </div>
+        </div>
+
+        <nav class="nav-list">
+          <button class="nav-item active" type="button" data-view="overview">
+            <span class="nav-icon">⌂</span>
+            工作台
+          </button>
+          <button class="nav-item" type="button" data-view="sales">
+            <span class="nav-icon">↕</span>
+            销量监控
+          </button>
+          <button class="nav-item" type="button" data-view="factors">
+            <span class="nav-icon">◇</span>
+            预估因子
+          </button>
+          <button class="nav-item" type="button" data-view="market">
+            <span class="nav-icon">¥</span>
+            同行价格
+          </button>
+          <button class="nav-item" type="button" data-view="model">
+            <span class="nav-icon">∑</span>
+            CUT 模型
+          </button>
+        </nav>
+
+        <div class="sidebar-note">
+          <span>抓取状态</span>
+          <strong>全部正常</strong>
+          <small>12 个活动在线同步</small>
+        </div>
+      </aside>
+
+      <main class="main">
+        <header class="topbar">
+          <div>
+            <p class="page-kicker">0628 BOYNEXTDOOR · KMS 签售</p>
+            <h1>销量监控与中选 CUT 预估</h1>
+          </div>
+          <div class="topbar-actions">
+            <button class="icon-button" type="button" aria-label="刷新">↻</button>
+            <button class="ghost-button" type="button">导出报告</button>
+            <button class="primary-button" type="button">新增活动</button>
+          </div>
+        </header>
+
+        <section class="decision-strip" aria-label="核心决策建议">
+          <article class="decision-card main-advice">
+            <div class="card-label">当前建议</div>
+            <div class="advice-grid">
+              <div>
+                <span>冲刺</span>
+                <strong id="sprintCut">128</strong>
+              </div>
+              <div class="selected-advice">
+                <span>均衡</span>
+                <strong id="balancedCut">145</strong>
+              </div>
+              <div>
+                <span>保守</span>
+                <strong id="safeCut">168</strong>
+              </div>
+            </div>
+            <p>前期第 2 场、同行报价偏强，已剔除疑似卡单与重复回传后生成。</p>
+          </article>
+
+          <article class="decision-card buyer-card">
+            <div class="card-label">我的购买</div>
+            <label class="number-field">
+              已买
+              <input id="ownedInput" type="number" min="0" value="100" />
+            </label>
+            <div class="buyer-result">
+              <span>建议追加</span>
+              <strong id="addMore">45</strong>
+            </div>
+          </article>
+
+          <article class="decision-card risk-card">
+            <div class="card-label">风险等级</div>
+            <strong>中等偏高</strong>
+            <div class="risk-meter" aria-hidden="true"><span></span></div>
+            <p>最后 1 小时流速可能高于平台均值。</p>
+          </article>
+        </section>
+
+        <section class="metrics-grid" aria-label="核心指标">
+          <article class="metric">
+            <span>有效销量</span>
+            <strong>1,906</strong>
+            <small>总销量 2,066 · 去水 160</small>
+          </article>
+          <article class="metric">
+            <span>抽选人数</span>
+            <strong>30</strong>
+            <small>平台 KMS · 商品 1</small>
+          </article>
+          <article class="metric">
+            <span>理论 CUT</span>
+            <strong>63.5</strong>
+            <small>仅作为基础实时值</small>
+          </article>
+          <article class="metric">
+            <span>异常占比</span>
+            <strong>7.7%</strong>
+            <small>卡单 160 · 重复 24</small>
+          </article>
+        </section>
+
+        <div class="content-grid">
+          <section class="panel wide-panel view-section active" data-section="overview">
+            <div class="panel-header">
+              <div>
+                <h2>活动概览</h2>
+                <p>把实时销量、市场情绪和尾段流速合并到同一个判断面板。</p>
+              </div>
+              <div class="status-pill">最新变化 06/25 16:31:30</div>
+            </div>
+            <div class="overview-layout">
+              <div class="chart-panel">
+                <div class="chart-header">
+                  <span>销量趋势</span>
+                  <strong>最后 1 小时预测 +280~360</strong>
+                </div>
+                <svg class="trend-chart" viewBox="0 0 720 260" role="img" aria-label="销量趋势图">
+                  <defs>
+                    <linearGradient id="chartFill" x1="0" x2="0" y1="0" y2="1">
+                      <stop offset="0" stop-color="#0f9f8f" stop-opacity="0.24" />
+                      <stop offset="1" stop-color="#0f9f8f" stop-opacity="0" />
+                    </linearGradient>
+                  </defs>
+                  <path class="grid-line" d="M40 50H690M40 105H690M40 160H690M40 215H690" />
+                  <path class="area-line" d="M42 220 C130 205 145 182 210 176 C280 168 285 116 355 110 C430 104 430 132 500 96 C570 60 610 76 688 42 L688 230 L42 230 Z" />
+                  <path class="trend-line" d="M42 220 C130 205 145 182 210 176 C280 168 285 116 355 110 C430 104 430 132 500 96 C570 60 610 76 688 42" />
+                  <circle class="warn-point" cx="355" cy="110" r="7" />
+                  <circle class="warn-point purple" cx="500" cy="96" r="7" />
+                </svg>
+              </div>
+              <div class="reason-list">
+                <h3>本次判断依据</h3>
+                <div class="reason-item up">
+                  <span>回归进度</span>
+                  <strong>前期第 2 场，上调 8%</strong>
+                </div>
+                <div class="reason-item up">
+                  <span>同行价格</span>
+                  <strong>中位价偏高，上调 6%</strong>
+                </div>
+                <div class="reason-item down">
+                  <span>异常剔除</span>
+                  <strong>剔除 184 张虚高销量</strong>
+                </div>
+                <div class="reason-item up">
+                  <span>尾段流速</span>
+                  <strong>平台末小时偏快，上调 10%</strong>
+                </div>
+              </div>
+            </div>
+          </section>
+
+          <section class="panel wide-panel view-section" data-section="sales">
+            <div class="panel-header">
+              <div>
+                <h2>销量变化表</h2>
+                <p>支持时间倒序、增长排序、异常排除和人工复核。</p>
+              </div>
+              <div class="control-row">
+                <button class="toggle-button active" type="button" id="sortTime">时间倒序</button>
+                <button class="toggle-button" type="button" id="sortGrowth">增长排序</button>
+                <button class="toggle-button" type="button" id="hideExcluded">隐藏勾选</button>
+              </div>
+            </div>
+            <div class="table-wrap">
+              <table>
+                <thead>
+                  <tr>
+                    <th>勾选</th>
+                    <th>序号</th>
+                    <th>时间</th>
+                    <th>增量</th>
+                    <th>总销量</th>
+                    <th>渠道</th>
+                    <th>异常标签</th>
+                  </tr>
+                </thead>
+                <tbody id="salesBody"></tbody>
+              </table>
+            </div>
+          </section>
+
+          <section class="panel view-section" data-section="factors">
+            <div class="panel-header compact">
+              <h2>人工预估信息</h2>
+              <span class="status-pill">因子 1</span>
+            </div>
+            <div class="form-grid">
+              <label>近次回归 CUT<input value="132 / 146 / 158" /></label>
+              <label>预计参与人数<input value="420-480 人" /></label>
+              <label>市场情绪<select><option>热</option><option>正常</option><option>冷</option></select></label>
+              <label>人工建议 CUT<input value="150" /></label>
+            </div>
+            <textarea>成员热度较上次回归提升，前两场报名意愿更强；KMS 平台近期尾段增速偏快。</textarea>
+          </section>
+
+          <section class="panel view-section" data-section="factors">
+            <div class="panel-header compact">
+              <h2>回归签售进度</h2>
+              <span class="status-pill">因子 2</span>
+            </div>
+            <div class="round-compare">
+              <div>
+                <h3>本次回归</h3>
+                <ol class="timeline">
+                  <li class="done">首场 · AppleMusic · CUT 168</li>
+                  <li class="current">第 2 场 · KMS · 预估中</li>
+                  <li>第 3 场 · 待公开</li>
+                  <li>末场 · 待公开</li>
+                </ol>
+              </div>
+              <div>
+                <h3>上次回归</h3>
+                <ol class="timeline muted">
+                  <li>首场 · KTown4 · CUT 154</li>
+                  <li>第 2 场 · KMS · CUT 137</li>
+                  <li>中期 · MusicArt · CUT 118</li>
+                  <li>末场 · Kmonster · CUT 171</li>
+                </ol>
+              </div>
+            </div>
+          </section>
+
+          <section class="panel wide-panel view-section" data-section="market">
+            <div class="panel-header">
+              <div>
+                <h2>同行价格监控</h2>
+                <p>收集闲鱼、Threads 报价和想要人数，判断市场热度。</p>
+              </div>
+              <span class="status-pill">中位价 ¥1,420</span>
+            </div>
+            <div class="market-grid">
+              <article class="market-card">
+                <span>闲鱼</span>
+                <strong>¥1,380-1,680</strong>
+                <small>想要人数 86 · 有效报价 12</small>
+              </article>
+              <article class="market-card">
+                <span>Threads</span>
+                <strong>¥1,450</strong>
+                <small>互动 214 · 重复报价 2</small>
+              </article>
+              <article class="market-card warning">
+                <span>异常报价</span>
+                <strong>3 条</strong>
+                <small>疑似虚高，不纳入主计算</small>
+              </article>
+            </div>
+          </section>
+
+          <section class="panel wide-panel view-section" data-section="model">
+            <div class="panel-header">
+              <div>
+                <h2>CUT 模型拆解</h2>
+                <p>基础实时 CUT 加上人工、进度、同行价格和尾段流速修正。</p>
+              </div>
+              <button class="ghost-button" type="button">调整权重</button>
+            </div>
+            <div class="model-stack">
+              <div class="model-row"><span>基础实时 CUT</span><strong>63.5</strong></div>
+              <div class="model-row positive"><span>人工预估修正</span><strong>+36.0</strong></div>
+              <div class="model-row positive"><span>回归进度修正</span><strong>+11.6</strong></div>
+              <div class="model-row positive"><span>同行价格修正</span><strong>+8.7</strong></div>
+              <div class="model-row positive"><span>尾段流速修正</span><strong>+25.2</strong></div>
+              <div class="model-row final"><span>均衡推荐 CUT</span><strong>145</strong></div>
+            </div>
+          </section>
+        </div>
+      </main>
+    </div>
+
+    <script src="./app.js"></script>
+  </body>
+</html>
