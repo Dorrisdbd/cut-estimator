@@ -57,6 +57,7 @@ function renderRows() {
 
 function setView(view) {
   state.view = view;
+  document.querySelector(".dashboard-only")?.classList.toggle("hidden", view !== "overview");
   document.querySelectorAll(".nav-item").forEach((button) => {
     button.classList.toggle("active", button.dataset.view === view);
   });
@@ -108,3 +109,4 @@ ownedInput.addEventListener("input", updateAdvice);
 
 renderRows();
 updateAdvice();
+setView("overview");

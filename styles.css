@@ -222,6 +222,10 @@ h3 {
   margin-bottom: 16px;
 }
 
+.dashboard-only.hidden {
+  display: none;
+}
+
 .decision-card,
 .metric,
 .panel {
@@ -477,8 +481,10 @@ h3 {
 
 .table-wrap {
   overflow: auto;
+  -webkit-overflow-scrolling: touch;
   border: 1px solid var(--line);
   border-radius: 8px;
+  max-width: 100%;
 }
 
 table {
@@ -486,6 +492,10 @@ table {
   min-width: 760px;
   border-collapse: collapse;
   background: #fff;
+}
+
+.mobile-table-hint {
+  display: none;
 }
 
 th,
@@ -699,7 +709,7 @@ textarea {
 
 @media (max-width: 720px) {
   .main {
-    padding: 18px;
+    padding: 12px;
   }
 
   .topbar,
@@ -708,7 +718,21 @@ textarea {
   }
 
   h1 {
-    font-size: 24px;
+    font-size: 21px;
+  }
+
+  h2 {
+    font-size: 16px;
+  }
+
+  .page-kicker {
+    font-size: 13px;
+    margin-bottom: 4px;
+  }
+
+  .topbar {
+    gap: 12px;
+    margin-bottom: 12px;
   }
 
   .nav-list {
@@ -726,6 +750,170 @@ textarea {
   .round-compare,
   .market-grid {
     grid-template-columns: 1fr;
+  }
+
+  .decision-strip,
+  .metrics-grid {
+    gap: 8px;
+    margin-bottom: 10px;
+  }
+
+  .decision-card,
+  .metric,
+  .panel {
+    box-shadow: 0 8px 28px rgba(20, 48, 55, 0.08);
+  }
+
+  .decision-card {
+    padding: 12px;
+  }
+
+  .card-label {
+    font-size: 12px;
+    margin-bottom: 7px;
+  }
+
+  .advice-grid {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 6px;
+  }
+
+  .advice-grid div {
+    padding: 8px;
+  }
+
+  .advice-grid span {
+    font-size: 12px;
+  }
+
+  .advice-grid strong {
+    font-size: 24px;
+  }
+
+  .main-advice p,
+  .risk-card p,
+  .panel-header p {
+    font-size: 12px;
+    line-height: 1.45;
+    margin-top: 7px;
+  }
+
+  .buyer-card,
+  .risk-card {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) auto;
+    align-items: center;
+    column-gap: 12px;
+  }
+
+  .buyer-card .card-label,
+  .risk-card .card-label {
+    grid-column: 1 / -1;
+  }
+
+  .number-field input {
+    padding: 8px 10px;
+  }
+
+  .buyer-result {
+    margin-top: 0;
+    gap: 8px;
+  }
+
+  .buyer-result strong,
+  .risk-card strong {
+    font-size: 24px;
+  }
+
+  .risk-meter,
+  .risk-card p {
+    grid-column: 1 / -1;
+  }
+
+  .risk-meter {
+    margin-top: 8px;
+  }
+
+  .metric {
+    padding: 12px;
+  }
+
+  .metric strong {
+    font-size: 24px;
+    margin: 3px 0;
+  }
+
+  .metric span,
+  .metric small {
+    font-size: 12px;
+  }
+
+  .content-grid {
+    gap: 10px;
+  }
+
+  .panel {
+    padding: 12px;
+  }
+
+  .panel-header {
+    gap: 10px;
+    margin-bottom: 10px;
+  }
+
+  .status-pill {
+    width: fit-content;
+    padding: 6px 10px;
+    font-size: 12px;
+  }
+
+  .trend-chart {
+    height: 180px;
+  }
+
+  .control-row {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    width: 100%;
+    gap: 6px;
+  }
+
+  .toggle-button {
+    min-height: 34px;
+    padding: 0 8px;
+    font-size: 12px;
+  }
+
+  .mobile-table-hint {
+    display: block;
+    margin: -2px 0 8px;
+    color: var(--muted);
+    font-size: 12px;
+  }
+
+  .table-wrap {
+    width: 100%;
+    overflow-x: auto;
+    overscroll-behavior-x: contain;
+  }
+
+  table {
+    width: max-content;
+    min-width: 720px;
+  }
+
+  th,
+  td {
+    padding: 9px 10px;
+    font-size: 12px;
+  }
+
+  th:first-child,
+  td:first-child {
+    position: sticky;
+    left: 0;
+    background: #fff;
+    z-index: 1;
   }
 
   .topbar-actions {

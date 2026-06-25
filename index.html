@@ -60,68 +60,70 @@
           </div>
         </header>
 
-        <section class="decision-strip" aria-label="核心决策建议">
-          <article class="decision-card main-advice">
-            <div class="card-label">当前建议</div>
-            <div class="advice-grid">
-              <div>
-                <span>冲刺</span>
-                <strong id="sprintCut">128</strong>
+        <div class="dashboard-only">
+          <section class="decision-strip" aria-label="核心决策建议">
+            <article class="decision-card main-advice">
+              <div class="card-label">当前建议</div>
+              <div class="advice-grid">
+                <div>
+                  <span>冲刺</span>
+                  <strong id="sprintCut">128</strong>
+                </div>
+                <div class="selected-advice">
+                  <span>均衡</span>
+                  <strong id="balancedCut">145</strong>
+                </div>
+                <div>
+                  <span>保守</span>
+                  <strong id="safeCut">168</strong>
+                </div>
               </div>
-              <div class="selected-advice">
-                <span>均衡</span>
-                <strong id="balancedCut">145</strong>
+              <p>前期第 2 场、同行报价偏强，已剔除疑似卡单与重复回传后生成。</p>
+            </article>
+
+            <article class="decision-card buyer-card">
+              <div class="card-label">我的购买</div>
+              <label class="number-field">
+                已买
+                <input id="ownedInput" type="number" min="0" value="100" />
+              </label>
+              <div class="buyer-result">
+                <span>建议追加</span>
+                <strong id="addMore">45</strong>
               </div>
-              <div>
-                <span>保守</span>
-                <strong id="safeCut">168</strong>
-              </div>
-            </div>
-            <p>前期第 2 场、同行报价偏强，已剔除疑似卡单与重复回传后生成。</p>
-          </article>
+            </article>
 
-          <article class="decision-card buyer-card">
-            <div class="card-label">我的购买</div>
-            <label class="number-field">
-              已买
-              <input id="ownedInput" type="number" min="0" value="100" />
-            </label>
-            <div class="buyer-result">
-              <span>建议追加</span>
-              <strong id="addMore">45</strong>
-            </div>
-          </article>
+            <article class="decision-card risk-card">
+              <div class="card-label">风险等级</div>
+              <strong>中等偏高</strong>
+              <div class="risk-meter" aria-hidden="true"><span></span></div>
+              <p>最后 1 小时流速可能高于平台均值。</p>
+            </article>
+          </section>
 
-          <article class="decision-card risk-card">
-            <div class="card-label">风险等级</div>
-            <strong>中等偏高</strong>
-            <div class="risk-meter" aria-hidden="true"><span></span></div>
-            <p>最后 1 小时流速可能高于平台均值。</p>
-          </article>
-        </section>
-
-        <section class="metrics-grid" aria-label="核心指标">
-          <article class="metric">
-            <span>有效销量</span>
-            <strong>1,906</strong>
-            <small>总销量 2,066 · 去水 160</small>
-          </article>
-          <article class="metric">
-            <span>抽选人数</span>
-            <strong>30</strong>
-            <small>平台 KMS · 商品 1</small>
-          </article>
-          <article class="metric">
-            <span>理论 CUT</span>
-            <strong>63.5</strong>
-            <small>仅作为基础实时值</small>
-          </article>
-          <article class="metric">
-            <span>异常占比</span>
-            <strong>7.7%</strong>
-            <small>卡单 160 · 重复 24</small>
-          </article>
-        </section>
+          <section class="metrics-grid" aria-label="核心指标">
+            <article class="metric">
+              <span>有效销量</span>
+              <strong>1,906</strong>
+              <small>总销量 2,066 · 去水 160</small>
+            </article>
+            <article class="metric">
+              <span>抽选人数</span>
+              <strong>30</strong>
+              <small>平台 KMS · 商品 1</small>
+            </article>
+            <article class="metric">
+              <span>理论 CUT</span>
+              <strong>63.5</strong>
+              <small>仅作为基础实时值</small>
+            </article>
+            <article class="metric">
+              <span>异常占比</span>
+              <strong>7.7%</strong>
+              <small>卡单 160 · 重复 24</small>
+            </article>
+          </section>
+        </div>
 
         <div class="content-grid">
           <section class="panel wide-panel view-section active" data-section="overview">
@@ -186,6 +188,7 @@
                 <button class="toggle-button" type="button" id="hideExcluded">隐藏勾选</button>
               </div>
             </div>
+            <p class="mobile-table-hint">表格可左右滑动查看完整字段</p>
             <div class="table-wrap">
               <table>
                 <thead>
