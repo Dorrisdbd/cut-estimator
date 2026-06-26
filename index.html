@@ -180,13 +180,55 @@
             <div class="panel-header">
               <div>
                 <h2>销量变化表</h2>
-                <p>支持时间倒序、增长排序、异常排除和人工复核。</p>
+                <p>按平台和商品切换，支持自动刷新、异常排除、导出和横向查看。</p>
               </div>
-              <div class="control-row">
+            </div>
+            <div class="sales-head">
+              <div class="platform-tabs" role="tablist" aria-label="平台切换">
+                <button class="pill-tab active" type="button" data-platform="KMS">KMS</button>
+                <button class="pill-tab" type="button" data-platform="KTown4">KTown4</button>
+                <button class="pill-tab" type="button" data-platform="Kmonster">Kmonster</button>
+                <button class="pill-tab" type="button" data-platform="IminiTv">IminiTv</button>
+              </div>
+              <div class="product-pills" aria-label="商品选择">
+                <button class="pill-toggle active" type="button" data-product="商品 1">商品 1</button>
+                <button class="pill-toggle active" type="button" data-product="商品 2">商品 2</button>
+                <button class="pill-toggle" type="button" data-product="商品 3">商品 3</button>
+              </div>
+              <div class="sales-actions">
+                <button class="toggle-button active" type="button" id="autoRefresh">自动刷新</button>
                 <button class="toggle-button active" type="button" id="sortTime">时间倒序</button>
                 <button class="toggle-button" type="button" id="sortGrowth">增长排序</button>
-                <button class="toggle-button" type="button" id="hideExcluded">隐藏勾选</button>
+                <button class="toggle-button" type="button" id="deleteInvalid">删除无效订单</button>
+                <button class="toggle-button" type="button" id="hideExcluded">隐藏勾选记录</button>
+                <button class="toggle-button" type="button" id="exportExcel">导出 Excel</button>
               </div>
+            </div>
+            <div class="sales-summary" aria-label="销量汇总">
+              <article class="sales-stat">
+                <span>总销</span>
+                <strong id="totalSales">2,066</strong>
+              </article>
+              <article class="sales-stat">
+                <span>注水</span>
+                <strong id="inflatedSales">160</strong>
+              </article>
+              <article class="sales-stat">
+                <span>去水后</span>
+                <strong id="validSales">1,906</strong>
+              </article>
+              <article class="sales-stat">
+                <span>结果</span>
+                <strong id="computedCut">63.5</strong>
+              </article>
+              <article class="sales-stat">
+                <span>抽选人数</span>
+                <strong id="drawCount">30</strong>
+              </article>
+              <article class="sales-stat">
+                <span>最后更新时间</span>
+                <strong id="lastUpdated">06/25 16:31:30</strong>
+              </article>
             </div>
             <p class="mobile-table-hint">表格可左右滑动查看完整字段</p>
             <div class="table-wrap">
@@ -196,8 +238,11 @@
                     <th>勾选</th>
                     <th>序号</th>
                     <th>时间</th>
+                    <th>平台</th>
+                    <th>商品</th>
                     <th>增量</th>
                     <th>总销量</th>
+                    <th>库存</th>
                     <th>渠道</th>
                     <th>异常标签</th>
                   </tr>

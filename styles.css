@@ -479,6 +479,77 @@ h3 {
   display: block;
 }
 
+.sales-head {
+  display: grid;
+  gap: 12px;
+  margin-bottom: 14px;
+}
+
+.platform-tabs,
+.product-pills,
+.sales-actions {
+  display: flex;
+  gap: 8px;
+  flex-wrap: wrap;
+}
+
+.pill-tab,
+.pill-toggle {
+  min-height: 36px;
+  border-radius: 8px;
+  border: 1px solid var(--line);
+  background: #fff;
+  color: var(--ink);
+  padding: 0 14px;
+  font-weight: 850;
+}
+
+.pill-tab.active {
+  color: #fff;
+  background: var(--accent);
+  border-color: var(--accent);
+}
+
+.pill-toggle {
+  color: var(--muted);
+}
+
+.pill-toggle.active {
+  color: var(--accent-dark);
+  background: var(--accent-soft);
+  border-color: #94d9cf;
+}
+
+.sales-summary {
+  display: grid;
+  grid-template-columns: repeat(6, minmax(0, 1fr));
+  gap: 10px;
+  margin-bottom: 12px;
+}
+
+.sales-stat {
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  background: #fbfdfd;
+  padding: 12px;
+}
+
+.sales-stat span,
+.sales-stat strong {
+  display: block;
+}
+
+.sales-stat span {
+  color: var(--muted);
+  font-size: 12px;
+  font-weight: 850;
+}
+
+.sales-stat strong {
+  margin-top: 4px;
+  font-size: 22px;
+}
+
 .table-wrap {
   overflow: auto;
   -webkit-overflow-scrolling: touch;
@@ -489,7 +560,7 @@ h3 {
 
 table {
   width: 100%;
-  min-width: 760px;
+  min-width: 1080px;
   border-collapse: collapse;
   background: #fff;
 }
@@ -544,6 +615,12 @@ th {
 
 .excluded {
   opacity: 0.45;
+}
+
+.empty-cell {
+  color: var(--muted);
+  text-align: center;
+  padding: 24px !important;
 }
 
 .form-grid {
@@ -878,6 +955,47 @@ textarea {
     gap: 6px;
   }
 
+  .sales-head {
+    gap: 8px;
+    margin-bottom: 10px;
+  }
+
+  .platform-tabs,
+  .product-pills {
+    flex-wrap: nowrap;
+    overflow-x: auto;
+    padding-bottom: 2px;
+  }
+
+  .pill-tab,
+  .pill-toggle {
+    flex: 0 0 auto;
+    min-height: 32px;
+    padding: 0 10px;
+    font-size: 12px;
+  }
+
+  .sales-actions {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 6px;
+  }
+
+  .sales-summary {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 7px;
+    margin-bottom: 10px;
+  }
+
+  .sales-stat {
+    padding: 9px;
+  }
+
+  .sales-stat strong {
+    font-size: 18px;
+    margin-top: 2px;
+  }
+
   .toggle-button {
     min-height: 34px;
     padding: 0 8px;
@@ -899,7 +1017,7 @@ textarea {
 
   table {
     width: max-content;
-    min-width: 720px;
+    min-width: 1040px;
   }
 
   th,
