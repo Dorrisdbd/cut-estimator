@@ -102,7 +102,7 @@ function renderRows() {
 
 function setView(view) {
   state.view = view;
-  document.querySelector(".dashboard-only")?.classList.toggle("hidden", view !== "overview");
+  document.querySelector(".dashboard-summary")?.classList.toggle("hidden", !["overview", "sales"].includes(view));
   document.querySelectorAll(".nav-item").forEach((button) => {
     button.classList.toggle("active", button.dataset.view === view);
   });

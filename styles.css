@@ -222,7 +222,7 @@ h3 {
   margin-bottom: 16px;
 }
 
-.dashboard-only.hidden {
+.dashboard-summary.hidden {
   display: none;
 }
 
@@ -479,10 +479,15 @@ h3 {
   display: block;
 }
 
+.access-switcher,
 .sales-head {
   display: grid;
   gap: 12px;
   margin-bottom: 14px;
+}
+
+.access-switcher {
+  margin-bottom: 16px;
 }
 
 .platform-tabs,
@@ -495,13 +500,14 @@ h3 {
 
 .pill-tab,
 .pill-toggle {
-  min-height: 36px;
+  min-height: 46px;
   border-radius: 8px;
   border: 1px solid var(--line);
   background: #fff;
   color: var(--ink);
-  padding: 0 14px;
+  padding: 0 22px;
   font-weight: 850;
+  font-size: 18px;
 }
 
 .pill-tab.active {
@@ -512,12 +518,15 @@ h3 {
 
 .pill-toggle {
   color: var(--muted);
+  min-height: 40px;
+  font-size: 15px;
 }
 
 .pill-toggle.active {
   color: var(--accent-dark);
   background: var(--accent-soft);
-  border-color: #94d9cf;
+  border-color: var(--blue);
+  box-shadow: inset 0 0 0 2px var(--blue);
 }
 
 .sales-summary {
@@ -955,6 +964,7 @@ textarea {
     gap: 6px;
   }
 
+  .access-switcher,
   .sales-head {
     gap: 8px;
     margin-bottom: 10px;
@@ -973,6 +983,18 @@ textarea {
     min-height: 32px;
     padding: 0 10px;
     font-size: 12px;
+  }
+
+  .access-switcher .pill-tab {
+    min-height: 40px;
+    padding: 0 16px;
+    font-size: 16px;
+  }
+
+  .access-switcher .pill-toggle {
+    min-height: 36px;
+    padding: 0 14px;
+    font-size: 14px;
   }
 
   .sales-actions {

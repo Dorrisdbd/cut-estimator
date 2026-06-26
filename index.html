@@ -60,7 +60,21 @@
           </div>
         </header>
 
-        <div class="dashboard-only">
+        <section class="access-switcher" aria-label="授权平台与商品切换">
+          <div class="platform-tabs" role="tablist" aria-label="平台切换">
+            <button class="pill-tab active" type="button" data-platform="KMS">KMS</button>
+            <button class="pill-tab" type="button" data-platform="KTown4">KTown4</button>
+            <button class="pill-tab" type="button" data-platform="Kmonster">Kmonster</button>
+            <button class="pill-tab" type="button" data-platform="IminiTv">IminiTv</button>
+          </div>
+          <div class="product-pills" aria-label="商品选择">
+            <button class="pill-toggle active" type="button" data-product="商品 1">商品 1</button>
+            <button class="pill-toggle active" type="button" data-product="商品 2">商品 2</button>
+            <button class="pill-toggle" type="button" data-product="商品 3">商品 3</button>
+          </div>
+        </section>
+
+        <div class="dashboard-summary">
           <section class="decision-strip" aria-label="核心决策建议">
             <article class="decision-card main-advice">
               <div class="card-label">当前建议</div>
@@ -184,17 +198,6 @@
               </div>
             </div>
             <div class="sales-head">
-              <div class="platform-tabs" role="tablist" aria-label="平台切换">
-                <button class="pill-tab active" type="button" data-platform="KMS">KMS</button>
-                <button class="pill-tab" type="button" data-platform="KTown4">KTown4</button>
-                <button class="pill-tab" type="button" data-platform="Kmonster">Kmonster</button>
-                <button class="pill-tab" type="button" data-platform="IminiTv">IminiTv</button>
-              </div>
-              <div class="product-pills" aria-label="商品选择">
-                <button class="pill-toggle active" type="button" data-product="商品 1">商品 1</button>
-                <button class="pill-toggle active" type="button" data-product="商品 2">商品 2</button>
-                <button class="pill-toggle" type="button" data-product="商品 3">商品 3</button>
-              </div>
               <div class="sales-actions">
                 <button class="toggle-button active" type="button" id="autoRefresh">自动刷新</button>
                 <button class="toggle-button active" type="button" id="sortTime">时间倒序</button>
